@@ -6,7 +6,7 @@ import "./styles/global.scss";
 function App() {
   return (
     <PortfolioProvider>
-      <Router>
+      <Router basename="/portfolio">
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
