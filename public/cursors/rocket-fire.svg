@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Fire animation -->
+  <path d="M4.5 17.5c-1 1.5-1.5 4-1.5 4s3-.5 4-1.5c.5-.75.5-1.5 0-2s-1.75-.5-2.5 0z" fill="#ff6b3d" stroke="#ff6b3d">
+    <animate attributeName="d" values="M4.5 17.5c-1 1.5-1.5 4-1.5 4s3-.5 4-1.5c.5-.75.5-1.5 0-2s-1.75-.5-2.5 0z;
+                                     M4 17c-1.25 1.75-2 4.5-2 4.5s3.5-.75 4.5-2c.6-.85.6-2 0-2.5s-1.9-.6-2.5 0z;
+                                     M4.5 17.5c-1 1.5-1.5 4-1.5 4s3-.5 4-1.5c.5-.75.5-1.5 0-2s-1.75-.5-2.5 0z" 
+             dur="0.8s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Rocket body -->
+  <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" stroke="#a87c50" fill="none"></path>
+  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" stroke="#a87c50" fill="none"></path>
+  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" stroke="#a87c50" fill="none"></path>
+</svg> 

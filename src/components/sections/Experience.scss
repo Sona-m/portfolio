@@ -1,0 +1,112 @@
+@use '../../styles/variables' as *;
+
+.experience {
+  background-color: $background-primary;
+}
+
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-12;
+  
+  @media (max-width: $breakpoint-md) {
+    gap: $spacing-8;
+  }
+}
+
+.experience-item {
+  position: relative;
+  border-left: 2px solid $border-color;
+  padding-left: $spacing-6;
+  padding-bottom: $spacing-6;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: -7px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: $accent-primary;
+  }
+  
+  &:last-child {
+    border-left-color: transparent;
+  }
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: $spacing-4;
+  
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    gap: $spacing-2;
+  }
+}
+
+.position {
+  font-size: $font-size-lg;
+  margin-bottom: $spacing-2;
+  
+  @media (min-width: $breakpoint-md) {
+    font-size: $font-size-xl;
+  }
+  
+  .company {
+    color: $accent-primary;
+  }
+}
+
+.period {
+  font-size: $font-size-sm;
+  color: $text-tertiary;
+  white-space: nowrap;
+  margin-top: $spacing-1;
+}
+
+.responsibilities {
+  margin-bottom: $spacing-4;
+  padding-left: 0;
+  list-style: none;
+  
+  li {
+    position: relative;
+    margin-bottom: $spacing-2;
+    font-size: $font-size-base;
+    color: $text-secondary;
+    line-height: 1.6;
+  }
+}
+
+.responsibility-marker {
+  color: $accent-primary;
+  font-weight: $font-weight-bold;
+  margin-right: $spacing-2;
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-2;
+  margin-top: $spacing-4;
+}
+
+.tech-tag {
+  display: inline-block;
+  padding: $spacing-1 $spacing-3;
+  font-size: $font-size-xs;
+  background-color: rgba($accent-primary, 0.1);
+  color: $accent-primary;
+  border-radius: $border-radius-full;
+  font-weight: $font-weight-medium;
+  transition: all $transition-fast;
+  
+  &:hover {
+    background-color: rgba($accent-primary, 0.2);
+    transform: translateY(-2px);
+  }
+} 

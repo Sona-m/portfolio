@@ -1,0 +1,264 @@
+@use 'variables' as *;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Custom cursor styles */
+html, body {
+  cursor: url('/cursors/rocket.svg') 24 2, auto;
+}
+
+a, button, [role="button"], input[type="submit"], input[type="button"], .clickable {
+  cursor: url('/cursors/rocket-fire.svg') 24 2, pointer !important;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+a:hover, button:hover, [role="button"]:hover, input[type="submit"]:hover, input[type="button"]:hover, .clickable:hover {
+  animation: pulsate 0.8s infinite ease-in-out;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family-sans;
+  font-size: $font-size-base;
+  line-height: 1.6;
+  color: $text-primary;
+  background-color: $background-primary;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  color: $accent-primary;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $accent-secondary;
+  }
+}
+
+button {
+  font-family: $font-family-sans;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-bold;
+  line-height: 1.2;
+  margin-bottom: $spacing-4;
+}
+
+h1 {
+  font-size: $font-size-3xl;
+  
+  @media (min-width: $breakpoint-md) {
+    font-size: $font-size-4xl;
+  }
+}
+
+h2 {
+  font-size: $font-size-2xl;
+  
+  @media (min-width: $breakpoint-md) {
+    font-size: $font-size-3xl;
+  }
+}
+
+h3 {
+  font-size: $font-size-xl;
+  
+  @media (min-width: $breakpoint-md) {
+    font-size: $font-size-2xl;
+  }
+}
+
+p {
+  margin-bottom: $spacing-4;
+}
+
+ul, ol {
+  margin-bottom: $spacing-4;
+  padding-left: $spacing-5;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+code, pre {
+  font-family: $font-family-mono;
+  font-size: $font-size-sm;
+}
+
+section {
+  padding: $spacing-16 0;
+  
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-12 0;
+  }
+  
+  @media (max-width: $breakpoint-sm) {
+    padding: $spacing-8 0;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-4;
+  
+  @media (min-width: $breakpoint-md) {
+    padding: 0 $spacing-6;
+  }
+}
+
+.section-title {
+  font-size: $font-size-xl;
+  text-transform: lowercase;
+  color: $text-secondary;
+  margin-bottom: $spacing-8;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -$spacing-2;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background-color: $accent-primary;
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn $transition-normal forwards;
+}
+
+.slide-up {
+  animation: slideUp $transition-normal forwards;
+}
+
+// Utility classes
+.text-center {
+  text-align: center;
+}
+
+.text-primary {
+  color: $text-primary;
+}
+
+.text-secondary {
+  color: $text-secondary;
+}
+
+.text-tertiary {
+  color: $text-tertiary;
+}
+
+.accent-text {
+  color: $accent-primary;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-1 {
+  gap: $spacing-1;
+}
+
+.gap-2 {
+  gap: $spacing-2;
+}
+
+.gap-4 {
+  gap: $spacing-4;
+}
+
+.gap-8 {
+  gap: $spacing-8;
+}
+
+.mt-2 {
+  margin-top: $spacing-2;
+}
+
+.mt-4 {
+  margin-top: $spacing-4;
+}
+
+.mt-8 {
+  margin-top: $spacing-8;
+}
+
+.mb-2 {
+  margin-bottom: $spacing-2;
+}
+
+.mb-4 {
+  margin-bottom: $spacing-4;
+}
+
+.mb-8 {
+  margin-bottom: $spacing-8;
+} 

@@ -1,0 +1,49 @@
+@use '../../styles/variables' as *;
+
+.footer {
+  padding: $spacing-12 0;
+  background-color: $background-secondary;
+  border-top: 1px solid $border-color;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-4;
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  gap: $spacing-6;
+  margin-bottom: $spacing-4;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-size: $font-size-md;
+  color: $text-secondary;
+  border-radius: $border-radius-full;
+  transition: all $transition-fast;
+  
+  &:hover {
+    color: $accent-primary;
+    transform: translateY(-3px);
+  }
+}
+
+.copyright, .credit {
+  font-size: $font-size-sm;
+  color: $text-tertiary;
+  margin: 0;
+}
+
+.credit .accent-text {
+  color: #e25555;
+  font-size: $font-size-base;
+} 

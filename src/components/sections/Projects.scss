@@ -1,0 +1,128 @@
+@use '../../styles/variables' as *;
+
+.projects {
+  background-color: $background-primary;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: $spacing-6;
+  
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-8;
+  }
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: $background-secondary;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  transition: all $transition-normal;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.project-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: $spacing-6;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-4;
+}
+
+.project-title {
+  font-size: $font-size-lg;
+  margin: 0;
+  color: $text-primary;
+}
+
+.project-badge {
+  display: inline-block;
+  padding: $spacing-1 $spacing-2;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  color: white;
+  background-color: #12b886;
+  border-radius: $border-radius-full;
+}
+
+.project-description {
+  margin: 0 0 $spacing-4;
+  padding-left: $spacing-5;
+  
+  li {
+    margin-bottom: $spacing-2;
+    color: $text-secondary;
+    font-size: $font-size-sm;
+  }
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-2;
+  margin-bottom: $spacing-6;
+  margin-top: auto;
+}
+
+.tech-pill {
+  display: inline-block;
+  padding: $spacing-1 $spacing-2;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  background-color: rgba($accent-primary, 0.1);
+  color: $accent-primary;
+  border-radius: $border-radius-full;
+}
+
+.project-links {
+  display: flex;
+  gap: $spacing-4;
+  margin-top: auto;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-2;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $text-primary;
+  transition: all $transition-fast;
+  
+  &:hover {
+    color: $accent-primary;
+  }
+}
+
+.project-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $transition-normal;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+} 

@@ -1,0 +1,50 @@
+name: Build and Deploy React App
+
+on:
+  push:
+    branches: [main, master] # or your default branch
+  issues:
+    types:
+      - opened
+env:
+  CONFIG_URL: "/portfolioConfig.json"
+  CONFIG_CI: ""
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22" # or your preferred version
+          cache: "npm"
+          cache-dependency-path: "package-lock.json"
+
+      - name: Install dependencies
+        run: |
+          npm install
+
+      - name: Set environment variables from secrets
+        run: |
+          echo "CONFIG_URL=${{ secrets.CONFIG_URL }}" >> $GITHUB_ENV
+
+      - name: Build React app
+        run: |
+          npm run build
+        env:
+          CONFIG_URL: ${{ env.CONFIG_URL }}
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{secrets.GITHUB_TOKEN}} # github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          keep_files: true # keeps existing files in gh-pages branch
+          
+      - name: "Debug: List build folder contents"
+        run: ls -a 
