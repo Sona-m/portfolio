@@ -1,0 +1,171 @@
+{
+  "personalInfo": {
+    "name": "Sonam Kumari",
+    "title": "Frontend Developer",
+    "location": "Bengaluru, India",
+    "intro": "Creative and performance-driven Frontend Developer with 3+ years of experience building fast, scalable, and accessible React applications. Specialized in micro-frontends, Redux Toolkit, and modern UI systems. Strong focus on reusable abstractions, performance optimization, and developer experience.",
+    "jobStatus": "Currently working as a Software Developer at Cygeniq. Open to impactful frontend and UI engineering roles focused on scalable architecture and modern tooling.",
+    "resumeUrl": "https://drive.google.com/drive/folders/1affT7rlOvn5eZ_mG9Qy87LpbSQVPDaJj?usp=sharing",
+    "calendarUrl": "",
+    "pronouns": ""
+  },
+  "experiences": [
+    {
+      "position": "Software Developer",
+      "company": "Cygeniq",
+      "period": "Jul 2025 – Present",
+      "description": [
+        "Developed and maintained a reusable component library improving accessibility and page performance by 60% (LCP, INP, CLS).",
+        "Implemented a scalable theming system (light/dark mode) aligned with design tokens.",
+        "Set up component documentation and visualization environment for better developer collaboration.",
+        "Standardized component APIs improving developer experience and consistency across applications.",
+        "Resolved dependency and build issues in large-scale frontend projects.",
+        "Integrated Playwright-based end-to-end testing for real browser interaction validation.",
+        "Integrated frontend systems with backend services and message queue configurations.",
+        "Collaborated with cross-functional teams to deliver high-quality production features."
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Material UI",
+        "Playwright",
+        "REST APIs",
+        "JavaScript"
+      ]
+    },
+    {
+      "position": "Software Engineer",
+      "company": "Effigo",
+      "period": "Jun 2023 – Jul 2025",
+      "description": [
+        "Architected micro-frontend architecture using Module Federation enabling independent deployment.",
+        "Improved application load time by 30% using lazy loading, tree shaking, and optimized Webpack configuration.",
+        "Refactored state management using Redux Toolkit reducing unnecessary re-renders and improving UI performance.",
+        "Built accessible and user-friendly interfaces using Material UI, SASS, and ARIA standards.",
+        "Optimized build performance and reduced bundle size by excluding non-production code.",
+        "Developed complex forms using Formik and React Hook Form.",
+        "Implemented RBAC and secure routing using JWT and React Router.",
+        "Integrated analytics tools like Mixpanel and Amplitude for user behavior tracking."
+      ],
+      "technologies": [
+        "React",
+        "Redux Toolkit",
+        "Webpack",
+        "JavaScript",
+        "Material UI",
+        "SASS",
+        "JWT"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "category": "Frontend",
+      "items": [
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Next.js",
+        "Redux Toolkit",
+        "Zustand",
+        "HTML5",
+        "CSS3",
+        "Material UI",
+        "TailwindCSS",
+        "Ant Design"
+      ]
+    },
+    {
+      "category": "Backend",
+      "items": [
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "REST APIs"
+      ]
+    },
+    {
+      "category": "Tools & Practices",
+      "items": [
+        "Git",
+        "GitHub",
+        "Webpack",
+        "Vite",
+        "Jest",
+        "Playwright",
+        "CI/CD",
+        "Agile/Scrum",
+        "AgGrid"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "UI Component Library",
+      "description": [
+        "Built a scalable and reusable component library used across multiple applications.",
+        "Improved accessibility and performance metrics significantly.",
+        "Standardized UI patterns and developer workflows."
+      ],
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Material UI"
+      ]
+    },
+    {
+      "name": "Micro-Frontend Architecture",
+      "description": [
+        "Implemented Module Federation-based micro-frontend architecture.",
+        "Enabled independent deployments and improved scalability of frontend modules."
+      ],
+      "technologies": [
+        "Webpack",
+        "React",
+        "JavaScript"
+      ]
+    },
+    {
+      "name": "Performance Optimization System",
+      "description": [
+        "Optimized frontend performance using lazy loading, tree shaking, and bundle optimization.",
+        "Improved load times and Core Web Vitals significantly."
+      ],
+      "technologies": [
+        "Webpack",
+        "React"
+      ]
+    }
+  ],
+  "socialLinks": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/Sona-m",
+      "icon": "github"
+    },
+    {
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/sonam-sinha-1ba443211/",
+      "icon": "linkedin"
+    },
+    {
+      "name": "Email",
+      "url": "mailto:sonamkri1605@gmail.com",
+      "icon": "envelope"
+    }
+  ],
+  "seo": {
+    "title": "Sonam Kumari | Frontend Developer",
+    "description": "Sonam Kumari is a frontend developer specializing in React, TypeScript, and scalable UI systems. Focused on performance optimization, micro-frontends, and design systems.",
+    "keywords": [
+      "Sonam Kumari",
+      "frontend developer",
+      "React developer",
+      "TypeScript",
+      "Redux Toolkit",
+      "micro frontend",
+      "UI engineer",
+      "performance optimization"
+    ]
+  }
+}
