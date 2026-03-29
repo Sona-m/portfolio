@@ -60,7 +60,7 @@ export interface PortfolioConfig {
 // Uses CONFIG_URL environment variable if provided,
 // otherwise falls back to default "/portfolioConfig.json"
 // export const configURL = process.env.CONFIG_URL || "/portfolioConfig.json";
-export const configURL = "/portfolioConfig.json";
+export const configURL = "/portfolio/portfolioConfig.json";
 
 // Function to fetch portfolio config
 export const fetchPortfolioConfig = async (): Promise<PortfolioConfig> => {
@@ -79,7 +79,7 @@ export const fetchPortfolioConfig = async (): Promise<PortfolioConfig> => {
 // Function to fetch dev jokes
 export const fetchDevJokes = async (): Promise<string[]> => {
   try {
-    const response = await fetch("/devJokes.json");
+    const response = await fetch("/portfolio/devJokes.json");
     if (!response.ok) {
       throw new Error(`Failed to fetch dev jokes: ${response.status}`);
     }
