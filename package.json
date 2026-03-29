@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "homepage": "https://Sona-m.github.io/portfolio/",
   "scripts": {
     "dev": "vite",
     "build": "npx tsc && vite build",
