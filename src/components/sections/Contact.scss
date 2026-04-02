@@ -1,94 +1,118 @@
-@import '../../styles/variables';
+@use '../../styles/variables' as *;
 
 .contact {
-  background-color: $background-secondary;
-}
+  background: var(--bg-secondary);
 
-.contact-content {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-10;
-}
+  &__body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $sp6;
+    align-items: start;
 
-.contact-text {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-  
-  p {
-    font-size: $font-size-md;
-    color: $text-secondary;
+    @media (max-width: $bp-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__cta-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: $radius-xl;
+    padding: $sp8;
+    display: flex;
+    flex-direction: column;
+    gap: $sp6;
+    height: 100%;
+  }
+
+  &__cta-text {
+    font-size: $text-lg;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  &__email-btn {
+    align-self: flex-start;
+    gap: $sp2;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: $sp3;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: $sp4;
+    padding: $sp4 $sp5;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: $radius-lg;
+    text-decoration: none;
+    transition: all var(--transition-md);
+    group: true;
+
+    &:hover {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-md);
+      background: var(--bg-card-hover);
+      animation: none !important;
+
+      .contact__link-arrow {
+        transform: translate(2px, -2px);
+        opacity: 1;
+      }
+
+      .contact__link-icon {
+        background: var(--accent-bg-hover);
+        color: var(--accent);
+      }
+    }
+  }
+
+  &__link-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: $radius-md;
+    background: var(--accent-bg);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all var(--transition);
+  }
+
+  &__link-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  &__link-name {
+    font-size: $text-sm;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  &__link-url {
+    font-size: $text-xs;
+    color: var(--text-tertiary);
+    font-family: var(--font-mono);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__link-arrow {
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+    transition: all var(--transition);
+    opacity: 0.5;
   }
 }
-
-.contact-links {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: $spacing-4;
-  
-  @media (min-width: $breakpoint-lg) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.contact-link {
-  display: flex;
-  align-items: center;
-  gap: $spacing-4;
-  padding: $spacing-5;
-  background-color: $background-primary;
-  border-radius: $border-radius-lg;
-  transition: all $transition-fast;
-  border: 1px solid rgba($border-color, 0.7);
-  
-  &:hover {
-    border-color: $accent-primary;
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  }
-}
-
-.link-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: $border-radius-md;
-  background-color: rgba($accent-primary, 0.1);
-  color: $accent-primary;
-  font-size: $font-size-xl;
-}
-
-.link-text {
-  display: flex;
-  flex-direction: column;
-  
-  .link-name {
-    font-weight: $font-weight-semibold;
-    color: $text-primary;
-    font-size: $font-size-base;
-  }
-  
-  .link-url {
-    color: $text-tertiary;
-    font-size: $font-size-sm;
-    margin-top: $spacing-1;
-    word-break: break-all;
-  }
-}
-
-.contact-cta {
-  display: flex;
-  justify-content: center;
-  margin-top: $spacing-8;
-}
-
-.btn-lg {
-  padding: $spacing-4 $spacing-10;
-  font-size: $font-size-base;
-  
-  @media (max-width: $breakpoint-md) {
-    width: 100%;
-  }
-} 

@@ -12,7 +12,7 @@ interface LayoutProps {
 const Layout = ({ children, portfolioConfig }: LayoutProps) => {
   return (
     <div className="layout">
-      <Header />
+      <Header portfolioConfig={portfolioConfig} />
       <main className="main-content">{children}</main>
       <Footer portfolioConfig={portfolioConfig} />
     </div>

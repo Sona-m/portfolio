@@ -1,125 +1,148 @@
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import Typed from "typed.js";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFile, faCalendar } from "@fortawesome/free-solid-svg-icons";
-import { PortfolioConfig } from "../../config/portfolioConfig";
-import "./Hero.scss";
+import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
+import Typed from 'typed.js';
+import { PortfolioConfig } from '../../config/portfolioConfig';
+import './Hero.scss';
 
 interface HeroProps {
   portfolioConfig: PortfolioConfig;
 }
 
+import { getSocialIcon } from '../ui/Icons';
+
 const Hero: React.FC<HeroProps> = ({ portfolioConfig }) => {
-  const typedElement = useRef<HTMLSpanElement>(null);
-  const typed = useRef<Typed | null>(null);
+  const typedEl = useRef<HTMLSpanElement>(null);
+  const typedRef = useRef<Typed | null>(null);
+  const { personalInfo, socialLinks } = portfolioConfig;
 
   useEffect(() => {
-    if (typedElement.current) {
-      typed.current = new Typed(typedElement.current, {
-        strings: [
-          `${portfolioConfig.personalInfo.title}`,
-          "Problem Solver",
-          "UI Enthusiast",
-        ],
-        typeSpeed: 200,
+    if (typedEl.current) {
+      typedRef.current = new Typed(typedEl.current, {
+        strings: personalInfo.typedStrings,
+        typeSpeed: 55,
         backSpeed: 30,
-        backDelay: 1500,
-        startDelay: 500,
+        backDelay: 1800,
+        startDelay: 600,
         loop: true,
       });
     }
+    return () => typedRef.current?.destroy();
+  }, [personalInfo.typedStrings]);
 
-    return () => {
-      typed.current?.destroy();
-    };
-  }, [portfolioConfig]);
+
+
+  const container = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.12, delayChildren: 0.3 } },
+  };
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
+  };
 
   return (
-    <section id="home" className="hero">
+    <section id="home" className="hero" aria-label="Introduction">
+      {/* Decorative blobs */}
+      <div className="hero__blob hero__blob--1" aria-hidden="true" />
+      <div className="hero__blob hero__blob--2" aria-hidden="true" />
+
       <div className="container">
-        <div className="hero-content">
-          <motion.div
-            className="hero-text"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <motion.h1
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-            >
-              <span className="greeting">👋 Hi, I am</span>
-              <br />
-              <span className="name">{portfolioConfig.personalInfo.name}</span>
-            </motion.h1>
+        <motion.div
+          className="hero__content"
+          variants={container}
+          initial="hidden"
+          animate="visible"
+        >
 
-            <motion.h2
-              className="typed-title"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-            >
-              <span className="accent-text">
-                <span ref={typedElement}></span>
-              </span>
-            </motion.h2>
 
-            <motion.p
-              className="intro"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-            >
-              {portfolioConfig.personalInfo.intro}
-            </motion.p>
+          {/* Name */}
+          <motion.h1 className="hero__name" variants={item}>
+            {personalInfo.name}
+          </motion.h1>
 
-            <motion.div
-              className="cta-buttons"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.8, duration: 0.6 }}
+          {/* Typed role */}
+          <motion.div className="hero__role" variants={item}>
+            <span className="hero__role-arrow">→</span>
+            <span className="hero__typed" aria-live="polite">
+              <span ref={typedEl} />
+            </span>
+          </motion.div>
+
+          {/* Headline */}
+          <motion.p className="hero__headline" variants={item}>
+            {personalInfo.headline}
+          </motion.p>
+
+          {/* Intro */}
+          <motion.p className="hero__intro" variants={item}>
+            {personalInfo.intro}
+          </motion.p>
+
+          {/* CTA Row */}
+          <motion.div className="hero__cta" variants={item}>
+            <a
+              href={personalInfo.resumeUrl}
+              className="btn btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <a
-                href={portfolioConfig.personalInfo.resumeUrl}
-                className="btn btn-primary"
+              View Resume
+            </a>
+            <a href="#case-studies" className="btn btn-ghost">
+              See My Work
+            </a>
+          </motion.div>
+
+          {/* Social Links */}
+          <motion.div className="hero__social" variants={item}>
+            {socialLinks.map(link => (
+              <motion.a
+                key={link.url}
+                href={link.url}
+                className="hero__social-link"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={link.name}
+                whileHover={{ y: -3, scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <FontAwesomeIcon icon={faFile} /> Resume
-              </a>
+                {getSocialIcon(link.name)}
+              </motion.a>
+            ))}
+          </motion.div>
 
-              {portfolioConfig.personalInfo.calendarUrl && (
-                <a
-                  href={portfolioConfig.personalInfo.calendarUrl}
-                  className="btn btn-secondary"
-                  target="_blank"
-                  rel="noopener noreferrer"
+          {/* Stats */}
+          {personalInfo.stats?.length > 0 && (
+            <motion.div className="hero__stats" variants={item}>
+              {personalInfo.stats.map((stat, i) => (
+                <motion.div
+                  key={stat.label}
+                  className="hero__stat"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.8 + i * 0.1, duration: 0.4 }}
                 >
-                  <FontAwesomeIcon icon={faCalendar} /> Schedule a call
-                </a>
-              )}
+                  <span className="hero__stat-value">{stat.value}</span>
+                  <span className="hero__stat-label">{stat.label}</span>
+                </motion.div>
+              ))}
             </motion.div>
-          </motion.div>
-
-          <motion.div
-            className="hero-scroll-indicator"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.4, duration: 0.8 }}
-          >
-            <div className="mouse">
-              <div className="wheel"></div>
-            </div>
-            <div className="arrow">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </motion.div>
-        </div>
+          )}
+        </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="hero__scroll"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 0.8 }}
+        aria-hidden="true"
+      >
+        <div className="hero__scroll-mouse">
+          <div className="hero__scroll-wheel" />
+        </div>
+      </motion.div>
     </section>
   );
 };

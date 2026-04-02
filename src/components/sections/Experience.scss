@@ -1,112 +1,141 @@
 @use '../../styles/variables' as *;
 
 .experience {
-  background-color: $background-primary;
+  background: var(--bg-secondary);
 }
 
-.experience-timeline {
+.exp-timeline {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: $spacing-12;
-  
-  @media (max-width: $breakpoint-md) {
-    gap: $spacing-8;
-  }
+  gap: $sp8;
 }
 
-.experience-item {
+.exp-item {
   position: relative;
-  border-left: 2px solid $border-color;
-  padding-left: $spacing-6;
-  padding-bottom: $spacing-6;
-  
-  &::before {
-    content: '';
+  padding-left: $sp8;
+
+  &__dot {
     position: absolute;
-    top: 8px;
-    left: -7px;
-    width: 12px;
-    height: 12px;
+    left: 0;
+    top: 22px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
-    background-color: $accent-primary;
+    background: var(--accent);
+    border: 3px solid var(--bg-secondary);
+    box-shadow: 0 0 0 2px var(--accent);
+    z-index: 1;
   }
-  
-  &:last-child {
-    border-left-color: transparent;
-  }
-}
 
-.experience-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: $spacing-4;
-  
-  @media (max-width: $breakpoint-md) {
+  &__line {
+    position: absolute;
+    left: 6px;
+    top: 36px;
+    bottom: -$sp8;
+    width: 2px;
+    background: var(--border);
+  }
+
+  &__card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: $radius-lg;
+    padding: $sp6;
+    transition: all var(--transition-md);
+
+    &:hover {
+      border-color: rgba(155, 111, 66, 0.3);
+      box-shadow: var(--shadow-md);
+      transform: translateX(4px);
+      animation: none !important;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: $sp4;
+    margin-bottom: $sp4;
+    flex-wrap: wrap;
+  }
+
+  &__title-group {
+    display: flex;
     flex-direction: column;
-    gap: $spacing-2;
+    gap: 2px;
+  }
+
+  &__role {
+    font-size: $text-xl;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin: 0;
+
+    @media (max-width: $bp-sm) {
+      font-size: $text-lg;
+    }
+  }
+
+  &__company {
+    font-size: $text-sm;
+    color: var(--accent);
+    font-weight: 600;
+    font-family: var(--font-mono);
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: $sp2;
+
+    @media (max-width: $bp-sm) {
+      align-items: flex-start;
+    }
+  }
+
+  &__period {
+    font-size: $text-xs;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    font-family: var(--font-mono);
+    white-space: nowrap;
+  }
+
+  &__highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 $sp4;
+    display: flex;
+    flex-direction: column;
+    gap: $sp2;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: $sp3;
+      font-size: $text-sm;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+  }
+
+  &__bullet {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  &__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $sp2;
   }
 }
-
-.position {
-  font-size: $font-size-lg;
-  margin-bottom: $spacing-2;
-  
-  @media (min-width: $breakpoint-md) {
-    font-size: $font-size-xl;
-  }
-  
-  .company {
-    color: $accent-primary;
-  }
-}
-
-.period {
-  font-size: $font-size-sm;
-  color: $text-tertiary;
-  white-space: nowrap;
-  margin-top: $spacing-1;
-}
-
-.responsibilities {
-  margin-bottom: $spacing-4;
-  padding-left: 0;
-  list-style: none;
-  
-  li {
-    position: relative;
-    margin-bottom: $spacing-2;
-    font-size: $font-size-base;
-    color: $text-secondary;
-    line-height: 1.6;
-  }
-}
-
-.responsibility-marker {
-  color: $accent-primary;
-  font-weight: $font-weight-bold;
-  margin-right: $spacing-2;
-}
-
-.technologies {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $spacing-2;
-  margin-top: $spacing-4;
-}
-
-.tech-tag {
-  display: inline-block;
-  padding: $spacing-1 $spacing-3;
-  font-size: $font-size-xs;
-  background-color: rgba($accent-primary, 0.1);
-  color: $accent-primary;
-  border-radius: $border-radius-full;
-  font-weight: $font-weight-medium;
-  transition: all $transition-fast;
-  
-  &:hover {
-    background-color: rgba($accent-primary, 0.2);
-    transform: translateY(-2px);
-  }
-} 

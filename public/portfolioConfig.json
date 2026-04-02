@@ -1,171 +1,157 @@
 {
   "personalInfo": {
     "name": "Sonam Kumari",
-    "title": "Frontend Developer",
+    "title": "Frontend Engineer",
+    "headline": "I build scalable frontend systems, not just interfaces.",
     "location": "Bengaluru, India",
-    "intro": "Creative and performance-driven Frontend Developer with 3+ years of experience building fast, scalable, and accessible React applications. Specialized in micro-frontends, Redux Toolkit, and modern UI systems. Strong focus on reusable abstractions, performance optimization, and developer experience.",
-    "jobStatus": "Currently working as a Software Developer at Cygeniq. Open to impactful frontend and UI engineering roles focused on scalable architecture and modern tooling.",
+    "intro": "Frontend Engineer with 3+ years of experience building scalable UI systems and production-grade React applications. Specialized in design systems, micro-frontends, and performance optimization.",
+    "jobStatus": "Currently leading frontend development at Cygeniq with end-to-end ownership from requirement gathering to Figma design and implementation.",
     "resumeUrl": "https://drive.google.com/drive/folders/1affT7rlOvn5eZ_mG9Qy87LpbSQVPDaJj?usp=sharing",
     "calendarUrl": "",
-    "pronouns": ""
+    "avatarUrl": "/portfolio/profile.jpeg",
+    "typedStrings": [
+      "Frontend Engineer",
+      "UI Systems Builder",
+      "Performance Optimizer",
+      "Design Systems Architect"
+    ],
+    "stats": [
+      { "value": "3+", "label": "Years Experience" },
+      { "value": "2", "label": "Companies" },
+      { "value": "3", "label": "Core Projects" },
+      { "value": "60%", "label": "Perf Improved" }
+    ]
   },
-  "experiences": [
+
+  "navLinks": [
+    { "label": "About", "href": "#about" },
+    { "label": "Experience", "href": "#experience" },
+    { "label": "Case Studies", "href": "#case-studies" },
+    { "label": "Skills", "href": "#skills" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+
+  "experience": [
     {
-      "position": "Software Developer",
       "company": "Cygeniq",
+      "role": "Software Developer",
       "period": "Jul 2025 – Present",
-      "description": [
-        "Developed and maintained a reusable component library improving accessibility and page performance by 60% (LCP, INP, CLS).",
-        "Implemented a scalable theming system (light/dark mode) aligned with design tokens.",
-        "Set up component documentation and visualization environment for better developer collaboration.",
-        "Standardized component APIs improving developer experience and consistency across applications.",
-        "Resolved dependency and build issues in large-scale frontend projects.",
-        "Integrated Playwright-based end-to-end testing for real browser interaction validation.",
-        "Integrated frontend systems with backend services and message queue configurations.",
-        "Collaborated with cross-functional teams to deliver high-quality production features."
+      "type": "Full-time",
+      "highlights": [
+        "Owned complete frontend development lifecycle (requirements → design → implementation)",
+        "Built reusable component library improving Core Web Vitals performance by 60%",
+        "Implemented scalable theming system using design tokens across multiple apps",
+        "Integrated Playwright for end-to-end testing coverage",
+        "Collaborated with backend teams for API design and system integration"
       ],
-      "technologies": [
-        "React",
-        "TypeScript",
-        "Material UI",
-        "Playwright",
-        "REST APIs",
-        "JavaScript"
-      ]
+      "technologies": ["React", "TypeScript", "Material UI", "Playwright"]
     },
     {
-      "position": "Software Engineer",
       "company": "Effigo",
+      "role": "Software Engineer",
       "period": "Jun 2023 – Jul 2025",
-      "description": [
-        "Architected micro-frontend architecture using Module Federation enabling independent deployment.",
-        "Improved application load time by 30% using lazy loading, tree shaking, and optimized Webpack configuration.",
-        "Refactored state management using Redux Toolkit reducing unnecessary re-renders and improving UI performance.",
-        "Built accessible and user-friendly interfaces using Material UI, SASS, and ARIA standards.",
-        "Optimized build performance and reduced bundle size by excluding non-production code.",
-        "Developed complex forms using Formik and React Hook Form.",
-        "Implemented RBAC and secure routing using JWT and React Router.",
-        "Integrated analytics tools like Mixpanel and Amplitude for user behavior tracking."
+      "type": "Full-time",
+      "highlights": [
+        "Implemented micro-frontend architecture using Webpack Module Federation",
+        "Improved load performance by 30% through bundle optimization strategies",
+        "Refactored state management from legacy Redux to Redux Toolkit",
+        "Built fully accessible UI components with ARIA standards compliance",
+        "Optimized bundle size reducing initial load by ~30%"
       ],
-      "technologies": [
-        "React",
-        "Redux Toolkit",
-        "Webpack",
-        "JavaScript",
-        "Material UI",
-        "SASS",
-        "JWT"
-      ]
+      "technologies": ["React", "Redux Toolkit", "Webpack", "JavaScript"]
     }
   ],
+
+  "caseStudies": [
+    {
+      "id": "hexashield",
+      "title": "HexaShield",
+      "tagline": "Frontend Scaling & Feature Ownership",
+      "type": "product",
+      "description": "Took over the frontend development of an existing security product (Version 1), driving its evolution from requirement gathering to Figma design and new feature deployments.",
+      "problem": "An existing complex security product needed scalable new features, UI improvements, and architectural refinements to handle rapidly evolving requirements.",
+      "approach": [
+        "Translated new business requirements into detailed UI flows and wireframes",
+        "Designed interfaces in Figma to incrementally improve the existing application",
+        "Refactored and expanded the existing React codebase with reusable components",
+        "Integrated complex REST APIs maintaining robust error handling"
+      ],
+      "impact": [
+        "Successfully scaled the application from Version 1 to a more robust platform",
+        "Improved usability scores and feature consistency across the evolving modules",
+        "Established a scalable component architecture for all future development"
+      ],
+      "technologies": ["React", "TypeScript", "Material UI", "REST APIs", "Figma"]
+    },
+    {
+      "id": "ux-components",
+      "title": "UX Common Components",
+      "tagline": "Design System & Component Library",
+      "type": "design-system",
+      "description": "Architected and built a scalable, reusable component library to standardize UI across multiple enterprise applications.",
+      "problem": "Multiple applications had inconsistent UI patterns, duplicated component code, and poor performance across the product suite.",
+      "approach": [
+        "Audited existing components across products and identified duplication",
+        "Created a unified component architecture with strict API contracts",
+        "Implemented a theming system with light/dark mode via CSS custom properties",
+        "Documented all components with usage guidelines for developers"
+      ],
+      "impact": [
+        "Improved Core Web Vitals performance by ~60% across consuming apps",
+        "Eliminated redundant development effort saving ~40% of UI dev time",
+        "Enhanced developer experience with a consistent, well-documented API"
+      ],
+      "technologies": ["React", "TypeScript", "Material UI", "Playwright", "Rollup"]
+    },
+    {
+      "id": "micro-frontend",
+      "title": "Micro-Frontend Architecture",
+      "tagline": "Scalable Distributed Frontend System",
+      "type": "architecture",
+      "description": "Designed and implemented a micro-frontend architecture enabling independent team deployments and eliminating release bottlenecks.",
+      "problem": "A monolithic React application was causing deployment bottlenecks, slow CI/CD cycles, and was impossible for multiple teams to work on simultaneously.",
+      "approach": [
+        "Evaluated Module Federation as the primary micro-frontend strategy",
+        "Separated features into independently deployable applications",
+        "Designed shared dependency management to avoid version conflicts",
+        "Implemented optimized per-app lazy loading and bundling strategies"
+      ],
+      "impact": [
+        "Enabled independent deployments reducing release cycle by 60%",
+        "Improved scalability enabling 3 teams to ship independently",
+        "Reduced initial bundle size by 30% through strategic code splitting"
+      ],
+      "technologies": ["Webpack", "Module Federation", "React", "JavaScript", "CI/CD"]
+    }
+  ],
+
   "skills": [
     {
       "category": "Frontend",
-      "items": [
-        "JavaScript",
-        "TypeScript",
-        "React",
-        "Next.js",
-        "Redux Toolkit",
-        "Zustand",
-        "HTML5",
-        "CSS3",
-        "Material UI",
-        "TailwindCSS",
-        "Ant Design"
-      ]
+      "icon": "💻",
+      "items": ["React", "TypeScript", "Next.js", "Redux Toolkit", "Zustand", "TailwindCSS", "Material UI"]
     },
     {
-      "category": "Backend",
-      "items": [
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-        "REST APIs"
-      ]
+      "category": "Architecture",
+      "icon": "🏗️",
+      "items": ["Micro-frontends", "Module Federation", "Design Systems", "Performance Optimization", "Atomic Design"]
     },
     {
-      "category": "Tools & Practices",
-      "items": [
-        "Git",
-        "GitHub",
-        "Webpack",
-        "Vite",
-        "Jest",
-        "Playwright",
-        "CI/CD",
-        "Agile/Scrum",
-        "AgGrid"
-      ]
+      "category": "Tooling",
+      "icon": "🔧",
+      "items": ["Git", "Webpack", "Vite", "Playwright", "Figma", "CI/CD"]
     }
   ],
-  "projects": [
-    {
-      "name": "UI Component Library",
-      "description": [
-        "Built a scalable and reusable component library used across multiple applications.",
-        "Improved accessibility and performance metrics significantly.",
-        "Standardized UI patterns and developer workflows."
-      ],
-      "technologies": [
-        "React",
-        "TypeScript",
-        "Material UI"
-      ]
-    },
-    {
-      "name": "Micro-Frontend Architecture",
-      "description": [
-        "Implemented Module Federation-based micro-frontend architecture.",
-        "Enabled independent deployments and improved scalability of frontend modules."
-      ],
-      "technologies": [
-        "Webpack",
-        "React",
-        "JavaScript"
-      ]
-    },
-    {
-      "name": "Performance Optimization System",
-      "description": [
-        "Optimized frontend performance using lazy loading, tree shaking, and bundle optimization.",
-        "Improved load times and Core Web Vitals significantly."
-      ],
-      "technologies": [
-        "Webpack",
-        "React"
-      ]
-    }
-  ],
+
   "socialLinks": [
-    {
-      "name": "GitHub",
-      "url": "https://github.com/Sona-m",
-      "icon": "github"
-    },
-    {
-      "name": "LinkedIn",
-      "url": "https://www.linkedin.com/in/sonam-sinha-1ba443211/",
-      "icon": "linkedin"
-    },
-    {
-      "name": "Email",
-      "url": "mailto:sonamkri1605@gmail.com",
-      "icon": "envelope"
-    }
+    { "name": "GitHub", "url": "https://github.com/Sona-m" },
+    { "name": "LinkedIn", "url": "https://www.linkedin.com/in/sonam-sinha-1ba443211/" },
+    { "name": "Email", "url": "mailto:sonamkri1605@gmail.com" }
   ],
+
   "seo": {
-    "title": "Sonam Kumari | Frontend Developer",
-    "description": "Sonam Kumari is a frontend developer specializing in React, TypeScript, and scalable UI systems. Focused on performance optimization, micro-frontends, and design systems.",
-    "keywords": [
-      "Sonam Kumari",
-      "frontend developer",
-      "React developer",
-      "TypeScript",
-      "Redux Toolkit",
-      "micro frontend",
-      "UI engineer",
-      "performance optimization"
-    ]
+    "title": "Sonam Kumari | Frontend Engineer",
+    "description": "Frontend Engineer specializing in React, TypeScript, micro-frontends, and scalable UI systems. 3+ years building production-grade applications.",
+    "keywords": ["Frontend Engineer", "React", "TypeScript", "Design Systems", "Micro Frontend", "UI Systems", "Performance"]
   }
 }

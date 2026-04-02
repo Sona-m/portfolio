@@ -1,67 +1,71 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { SectionProps } from "../../types/common";
-import "./Experience.scss";
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
+import SectionHeader from '../ui/SectionHeader';
+import Badge from '../ui/Badge';
+import TechPill from '../ui/TechPill';
+import { SectionProps } from '../../types/common';
+import './Experience.scss';
 
 const Experience: React.FC<SectionProps> = ({ portfolioConfig }) => {
   const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
-
-  const fadeInUpVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
+  const isInView = useInView(sectionRef, { once: true, margin: '-80px' });
 
   return (
     <section id="experience" className="experience" ref={sectionRef}>
       <div className="container">
-        <motion.h2
-          className="section-title"
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={fadeInUpVariants}
-          transition={{ duration: 0.5 }}
-        >
-          worked as.
-        </motion.h2>
+        <SectionHeader
+          label="Work History"
+          title="Experience"
+          subtitle="Where I've worked and what I've achieved."
+        />
 
-        <div className="experience-timeline">
-          {portfolioConfig.experiences.map((experience, index) => (
+        <div className="exp-timeline">
+          {portfolioConfig.experience.map((job, index) => (
             <motion.div
-              key={`${experience.company}-${index}`}
-              className="experience-item"
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              variants={fadeInUpVariants}
-              transition={{ duration: 0.5, delay: 0.1 * (index + 1) }}
+              key={`${job.company}-${index}`}
+              className="exp-item"
+              initial={{ opacity: 0, x: -20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
             >
-              <div className="experience-header">
-                <h3 className="position">
-                  {experience.position}
-                  <span className="company">, {experience.company}</span>
-                </h3>
-                <span className="period">{experience.period}</span>
-              </div>
+              {/* Timeline dot */}
+              <div className="exp-item__dot" aria-hidden="true" />
+              {index < portfolioConfig.experience.length - 1 && (
+                <div className="exp-item__line" aria-hidden="true" />
+              )}
 
-              <ul className="responsibilities">
-                {experience.description.map((item, i) => (
-                  <li key={i}>
-                    <span className="responsibility-marker">•</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <div className="exp-item__card">
+                <div className="exp-item__header">
+                  <div className="exp-item__title-group">
+                    <h3 className="exp-item__role">{job.role}</h3>
+                    <span className="exp-item__company">@ {job.company}</span>
+                  </div>
+                  <div className="exp-item__right">
+                    <span className="exp-item__period">{job.period}</span>
+                    <Badge variant={job.type.toLowerCase().replace('-', '-')} label={job.type} />
+                  </div>
+                </div>
 
-              {experience.technologies && (
-                <div className="technologies">
-                  {experience.technologies.map((tech, i) => (
-                    <span key={i} className="tech-tag">
-                      {tech}
-                    </span>
+                <ul className="exp-item__highlights">
+                  {job.highlights.map((item, i) => (
+                    <motion.li
+                      key={i}
+                      initial={{ opacity: 0, x: -8 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ delay: 0.3 + index * 0.15 + i * 0.06 }}
+                    >
+                      <span className="exp-item__bullet" />
+                      {item}
+                    </motion.li>
+                  ))}
+                </ul>
+
+                <div className="exp-item__tech">
+                  {job.technologies.map(tech => (
+                    <TechPill key={tech} label={tech} />
                   ))}
                 </div>
-              )}
+              </div>
             </motion.div>
           ))}
         </div>
